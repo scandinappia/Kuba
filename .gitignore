@@ -1,0 +1,4 @@
+UserSettings.xcuserdatad/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/*
