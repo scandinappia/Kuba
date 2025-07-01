@@ -12,5 +12,4 @@ struct Track: Decodable {
     let artistName: String?
     let releaseDate: String?
     let artworkUrl100: String?
-    let longDescription: String?
 }

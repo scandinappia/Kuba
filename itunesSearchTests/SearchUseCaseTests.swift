@@ -14,8 +14,7 @@ final class SearchUseCaseTests: XCTestCase {
         let expectedTracks = [Track(trackName: "Test",
                                     artistName: "Artist",
                                     releaseDate: nil,
-                                    artworkUrl100: nil,
-                                    longDescription: nil)]
+                                    artworkUrl100: nil)]
         mockService.result = .success(expectedTracks)
         let useCase = SearchUseCase(service: mockService)
         

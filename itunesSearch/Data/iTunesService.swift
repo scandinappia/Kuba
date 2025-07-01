@@ -26,10 +26,6 @@ final class ITunesService: ITunesServiceProtocol {
         
         let (data, _) = try await URLSession.shared.data(from: url)
         
-        struct SearchResponse: Decodable {
-            let results: [Track]
-        }
-        
         let response = try JSONDecoder().decode(SearchResponse.self, from: data)
         return response.results
     }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8E3CA6932E13CCE5005A1FD4 /* itunesSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6922E13CCE5005A1FD4 /* itunesSearchApp.swift */; };
-		8E3CA6952E13CCE5005A1FD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6942E13CCE5005A1FD4 /* ContentView.swift */; };
 		8E3CA6972E13CCE8005A1FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3CA6962E13CCE8005A1FD4 /* Assets.xcassets */; };
 		8E3CA69B2E13CCE8005A1FD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3CA69A2E13CCE8005A1FD4 /* Preview Assets.xcassets */; };
 		8E3CA6BF2E13CFEF005A1FD4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6BE2E13CFEF005A1FD4 /* Track.swift */; };
@@ -16,6 +15,9 @@
 		8E3CA6C42E13D66B005A1FD4 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6C32E13D66B005A1FD4 /* SearchResponse.swift */; };
 		8E3CA6C62E13DA92005A1FD4 /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6C52E13DA92005A1FD4 /* SearchUseCase.swift */; };
 		8E3CA6C82E13DC6E005A1FD4 /* SearchUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6C72E13DC6E005A1FD4 /* SearchUseCaseTests.swift */; };
+		8E3CA6CB2E13F420005A1FD4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6CA2E13F420005A1FD4 /* SearchViewModel.swift */; };
+		8E3CA6CD2E13F4C1005A1FD4 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6CC2E13F4C1005A1FD4 /* TrackCell.swift */; };
+		8E3CA6CF2E13F54A005A1FD4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CA6CE2E13F54A005A1FD4 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,6 @@
 /* Begin PBXFileReference section */
 		8E3CA68F2E13CCE5005A1FD4 /* itunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3CA6922E13CCE5005A1FD4 /* itunesSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunesSearchApp.swift; sourceTree = "<group>"; };
-		8E3CA6942E13CCE5005A1FD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E3CA6962E13CCE8005A1FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E3CA6982E13CCE8005A1FD4 /* itunesSearch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itunesSearch.entitlements; sourceTree = "<group>"; };
 		8E3CA69A2E13CCE8005A1FD4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -41,6 +42,9 @@
 		8E3CA6C32E13D66B005A1FD4 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		8E3CA6C52E13DA92005A1FD4 /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
 		8E3CA6C72E13DC6E005A1FD4 /* SearchUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCaseTests.swift; sourceTree = "<group>"; };
+		8E3CA6CA2E13F420005A1FD4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		8E3CA6CC2E13F4C1005A1FD4 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		8E3CA6CE2E13F54A005A1FD4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +86,9 @@
 		8E3CA6912E13CCE5005A1FD4 /* itunesSearch */ = {
 			isa = PBXGroup;
 			children = (
+				8E3CA6C92E13F40E005A1FD4 /* Presentation */,
 				8E3CA6BD2E13CFDB005A1FD4 /* Data */,
 				8E3CA6C02E13D5EC005A1FD4 /* Domain */,
-				8E3CA6922E13CCE5005A1FD4 /* itunesSearchApp.swift */,
-				8E3CA6942E13CCE5005A1FD4 /* ContentView.swift */,
 				8E3CA6962E13CCE8005A1FD4 /* Assets.xcassets */,
 				8E3CA6982E13CCE8005A1FD4 /* itunesSearch.entitlements */,
 				8E3CA6992E13CCE8005A1FD4 /* Preview Content */,
@@ -125,6 +128,17 @@
 				8E3CA6C52E13DA92005A1FD4 /* SearchUseCase.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		8E3CA6C92E13F40E005A1FD4 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8E3CA6922E13CCE5005A1FD4 /* itunesSearchApp.swift */,
+				8E3CA6CA2E13F420005A1FD4 /* SearchViewModel.swift */,
+				8E3CA6CE2E13F54A005A1FD4 /* SearchViewController.swift */,
+				8E3CA6CC2E13F4C1005A1FD4 /* TrackCell.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,12 +242,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E3CA6952E13CCE5005A1FD4 /* ContentView.swift in Sources */,
+				8E3CA6CB2E13F420005A1FD4 /* SearchViewModel.swift in Sources */,
 				8E3CA6932E13CCE5005A1FD4 /* itunesSearchApp.swift in Sources */,
+				8E3CA6CF2E13F54A005A1FD4 /* SearchViewController.swift in Sources */,
 				8E3CA6C42E13D66B005A1FD4 /* SearchResponse.swift in Sources */,
 				8E3CA6BF2E13CFEF005A1FD4 /* Track.swift in Sources */,
 				8E3CA6C22E13D601005A1FD4 /* iTunesService.swift in Sources */,
 				8E3CA6C62E13DA92005A1FD4 /* SearchUseCase.swift in Sources */,
+				8E3CA6CD2E13F4C1005A1FD4 /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
