@@ -15,7 +15,6 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
     
     private let tableView = UITableView()
     private let searchBar = UISearchBar()
-    private let loadingOverlay = UIView()
     private let loadingIndicator = UIActivityIndicatorView(style: .medium)
     private let errorLabel = UILabel()
     
@@ -32,7 +31,6 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
         view.backgroundColor = .systemBackground
         setupSearchBar()
         setupTableView()
-        setupLoadingIndicator()
         addSubviews()
         setupConstraints()
     }
@@ -52,20 +50,14 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
         tableView.keyboardDismissMode = .onDrag
-    }
 
-    private func setupLoadingIndicator() {
-        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-        loadingOverlay.translatesAutoresizingMaskIntoConstraints = false
-        loadingOverlay.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.6)
-        loadingOverlay.isHidden = true
+        loadingIndicator.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44)
+        tableView.tableFooterView = nil
     }
 
     private func addSubviews() {
         view.addSubview(searchBar)
         view.addSubview(tableView)
-        loadingOverlay.addSubview(loadingIndicator)
-        view.addSubview(loadingOverlay)
     }
 
     private func setupConstraints() {
@@ -73,14 +65,6 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            loadingOverlay.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            loadingOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loadingOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            loadingOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            loadingIndicator.centerXAnchor.constraint(equalTo: loadingOverlay.centerXAnchor),
-            loadingIndicator.centerYAnchor.constraint(equalTo: loadingOverlay.centerYAnchor),
 
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -103,11 +87,11 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
             .sink { [weak self] loading in
                 guard let self else { return }
                 if loading {
-                    self.loadingOverlay.isHidden = false
+                    self.tableView.tableFooterView = self.loadingIndicator
                     self.loadingIndicator.startAnimating()
                 } else {
                     self.loadingIndicator.stopAnimating()
-                    self.loadingOverlay.isHidden = true
+                    self.tableView.tableFooterView = nil
                 }
             }
             .store(in: &cancellables)

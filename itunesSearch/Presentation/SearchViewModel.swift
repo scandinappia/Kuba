@@ -38,7 +38,7 @@ final class SearchViewModel: ObservableObject {
     }
 
     func loadMoreIfNeeded(currentIndex: Int) {
-        guard currentIndex >= tracks.count - 3 else { return }
+        guard currentIndex >= tracks.count - 2 else { return }
         search(term)
     }
 
