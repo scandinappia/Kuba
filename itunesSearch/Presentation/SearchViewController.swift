@@ -56,7 +56,6 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
 
     private func setupLoadingIndicator() {
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-
         loadingOverlay.translatesAutoresizingMaskIntoConstraints = false
         loadingOverlay.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.6)
         loadingOverlay.isHidden = true
@@ -132,6 +131,7 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
             return UITableViewCell()
         }
         cell.configure(with: viewModel.tracks[indexPath.row])
+        viewModel.loadMoreIfNeeded(currentIndex: indexPath.row)
         return cell
     }
 
@@ -171,7 +171,7 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UITab
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.query = searchText
+        viewModel.term = searchText
     }
 }
 

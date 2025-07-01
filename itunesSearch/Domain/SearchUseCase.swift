@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchUseCaseProtocol {
-    func execute(term: String) async throws -> [Track]
+    func execute(term: String, limit: Int, offset: Int) async throws -> [Track]
 }
 
 final class SearchUseCase: SearchUseCaseProtocol {
@@ -18,8 +18,8 @@ final class SearchUseCase: SearchUseCaseProtocol {
         self.service = service
     }
     
-    func execute(term: String) async throws -> [Track] {
-        try await service.searchTracks(for: term)
+    func execute(term: String, limit: Int = 10, offset: Int = 0) async throws -> [Track] {
+        try await service.searchTracks(for: term, limit: limit, offset: offset)
     }
 }
 

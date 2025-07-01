@@ -39,15 +39,18 @@ final class SearchUseCaseTests: XCTestCase {
     }
 }
 
-
 // MARK: - Mock Service
 
 final class MockService: ITunesServiceProtocol {
     var calledWithTerm: String?
+    var calledWithLimit: Int?
+    var calledWithOffset: Int?
     var result: Result<[Track], Error> = .success([])
-    
-    func searchTracks(for term: String) async throws -> [Track] {
+
+    func searchTracks(for term: String, limit: Int, offset: Int) async throws -> [Track] {
         calledWithTerm = term
+        calledWithLimit = limit
+        calledWithOffset = offset
         switch result {
         case .success(let tracks):
             return tracks
