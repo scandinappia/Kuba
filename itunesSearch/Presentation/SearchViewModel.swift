@@ -62,8 +62,16 @@ final class SearchViewModel: ObservableObject {
                 self.currentOffset += newTracks.count
                 self.hasMoreResults = newTracks.count == self.limit
                 self.errorMessage = nil
+            } catch let error as SearchUseCaseError {
+                switch error {
+                case .httpError, .invalidResponseFormat:
+                    errorMessage = "Something went wrong. Please try again."
+                case .invalidURL:
+                    errorMessage = "Invalid search term."
+                }
+                tracks = []
             } catch {
-                self.errorMessage = error.localizedDescription
+                self.errorMessage = "An unexpected error occurred."
                 self.hasMoreResults = false
             }
             self.isLoading = false

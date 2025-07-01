@@ -26,8 +26,18 @@ final class ITunesService: ITunesServiceProtocol {
             throw SearchUseCaseError.invalidURL
         }
 
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, urlResponse) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = urlResponse as? HTTPURLResponse else {
+            throw SearchUseCaseError.invalidResponseFormat
+        }
+        
         let response = try JSONDecoder().decode(SearchResponse.self, from: data)
+        
+        guard (200...299).contains(httpResponse.statusCode) else {
+            throw SearchUseCaseError.httpError
+        }
+        
         return response.results
     }
 }

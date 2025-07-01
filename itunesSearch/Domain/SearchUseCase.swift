@@ -27,4 +27,6 @@ final class SearchUseCase: SearchUseCaseProtocol {
 
 enum SearchUseCaseError: Error {
     case invalidURL
+    case invalidResponseFormat
+    case httpError
 }
