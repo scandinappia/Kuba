@@ -10,6 +10,7 @@ import XCTest
 
 final class SearchUseCaseTests: XCTestCase {
     func testExecuteReturnsTracks() async throws {
+        // Given
         let mockService = MockService()
         let expectedTracks = [Track(trackName: "Test",
                                     artistName: "Artist",
@@ -18,22 +19,28 @@ final class SearchUseCaseTests: XCTestCase {
         mockService.result = .success(expectedTracks)
         let useCase = SearchUseCase(service: mockService)
         
+        // When
         let tracks = try await useCase.execute(term: "test")
         
+        // Then
         XCTAssertEqual(tracks.count, expectedTracks.count)
         XCTAssertEqual(mockService.calledWithTerm, "test")
     }
     
     func testExecuteThrowsError() async {
+        // Given
         let mockService = MockService()
         let expectedError = NSError(domain: "TestError", code: 1, userInfo: nil)
         mockService.result = .failure(expectedError)
         let useCase = SearchUseCase(service: mockService)
         
+        // When
         do {
             _ = try await useCase.execute(term: "test")
+            // Then
             XCTFail("Expected error but got success")
         } catch {
+            // Then
             XCTAssertEqual(error as NSError, expectedError)
         }
     }
